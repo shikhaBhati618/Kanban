@@ -1,0 +1,134 @@
+﻿@model IEnumerable<Karban.Models.KanbanModel>
+<style>
+    body {
+        background: #0079bf
+    }  
+
+    .header {
+       color:white;
+    }
+    
+     .column {
+        width: 107%;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        background-color: #f1f1f1;
+    }
+
+    .clsname {
+        font-size: small;
+    }
+
+    .clsboxHeader {
+        background-color: #8fb78a7d;
+    }
+    .scroll{
+        margin:4px, 4px; 
+                padding:4px; 
+                width: 107%; 
+                height: 600px; 
+                overflow-x: hidden; 
+                text-align:justify; 
+    }
+</style>
+@{
+    ViewData["Title"] = "OnlyMyPartners";
+}
+
+@{
+    var item = TempData["data"];
+
+}
+<div class="row">
+    <div class="col-md-4">
+        <h5 class="header effect"><center>To Do</center></h5>
+
+        <div class="scroll">
+            @foreach (var item1 in Model.Where(m => m.StatusCode == "Assigned" && m.Priority == "Medium").ToList())
+            {
+                <div class="column">
+                    <div class="card">
+                        <div class="clsboxHeader">
+                            <div class="row">
+                                <div class="col-md-6" style="color: #49556b;font-size: x-large;">@item1.CodeId</div>
+                                <div class="col-md-6" align="right" style="font-size: xx-large;">&#129333;</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <span class="clsname">
+                                @item1.DeveloperName
+                            </span>
+                        </div>
+                        <div class="col-md-10"><span class="clsname"> @item1.Priority</span></div>
+                        <div class="col-md-10" style="font-style: oblique; font-size:small;"> @item1.Subject</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="header effect">
+            <h5><center>InProgress</center></h5>
+        </div>
+        <div class="scroll">
+            @foreach (var item1 in Model.Where(m => m.StatusCode == "InProgress" && m.Priority == "Medium").ToList())
+            {
+                <div class="column">
+                    <div class="card">
+                        <div class="clsboxHeader">
+                            <div class="row">
+                                <div class="col-md-6" style="color: #49556b;font-size: x-large;">@item1.CodeId</div>
+                                <div class="col-md-6" align="right" style="font-size: xx-large;">&#129333;</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <span class="clsname">
+                                @item1.DeveloperName
+                            </span>
+                        </div>
+                        <div class="col-md-10"><span class="clsname"> @item1.Priority</span></div>
+                        <div class="col-md-10" style="font-style: oblique; font-size:small;"> @item1.Subject</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="header effect">
+            <h5><center>Done</center></h5>
+        </div>
+        <div class="scroll">
+            @foreach (var item1 in Model.Where(m => m.StatusCode == "Resolved" && m.Priority == "Medium").ToList())
+            {
+                <div class="column">
+                    <div class="card">
+                        <div class="clsboxHeader">
+                            <div class="row">
+                                <div class="col-md-6" style="color: #49556b;font-size: x-large;">@item1.CodeId</div>
+                                <div class="col-md-6" align="right" style="font-size: xx-large;">&#129333;</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <span class="clsname">
+                                @item1.DeveloperName
+                            </span>
+                        </div>
+                        <div class="col-md-10"><span class="clsname"> @item1.Priority</span></div>
+                        <div class="col-md-10" style="font-style: oblique; font-size:small;"> @item1.Subject</div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+
+

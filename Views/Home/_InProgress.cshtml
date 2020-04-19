@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Karban.Models.KanbanModel>
+<style>
+    body {
+        background: #ccc
+    }
+
+    .box {
+        width: 100%;
+        height: 163px;
+        background: #FFF;
+        margin: 40px auto;
+    }
+
+    .header {
+        width: 100%;
+        height: 36px;
+        background: #FFF;
+        margin: 40px auto;
+    }
+
+    .effect {
+        -webkit-box-shadow: 0 10px 6px -6px #777;
+        -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
+    }
+</style>
+
+<div class="header effect">
+    <h5><center>In Progress</center></h5>
+</div>
+@*@foreach(var item in Model)
+{
+<div class="box effect">
+    <h6>Hii</h6>
+</div>
+
+}*@
+<div class="box effect">
+    <p><b>CodeId    -</b></p>
+    <p><b>Developer -</b></p>
+    <p><b>Subject   -</b></p>
+</div>
